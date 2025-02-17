@@ -15,7 +15,32 @@ const orderedSites = featuredSites.sort(
   (a, b) => a.data.featured! - b.data.featured!,
 );
 ---
-<TeamSection />
+<TeamSection team={[
+  {
+    name: "Lic. Efi Bezi",
+    title: "Psicóloga, artista",
+    description: "Especialista en Psicodrama y Arteterapia.",
+    country: "Argentina",
+    image: "/ruta-de-la-imagen-efi.jpg",
+    social: [
+      { icon: "/icons/facebook.svg", link: "https://facebook.com/efi" },
+      { icon: "/icons/linkedin.svg", link: "https://linkedin.com/in/efi" },
+      { icon: "/icons/instagram.svg", link: "https://instagram.com/efi" }
+    ]
+  },
+  {
+    name: "Dra. Nelly López Azuz",
+    title: "Psicóloga, antropóloga",
+    description: "Experta en Sociodrama, Psicodrama e Inteligencia Espiritual.",
+    country: "México",
+    image: "/ruta-de-la-imagen-nelly.jpg",
+    social: [
+      { icon: "/icons/facebook.svg", link: "https://facebook.com/nelly" },
+      { icon: "/icons/linkedin.svg", link: "https://linkedin.com/in/nelly" },
+      { icon: "/icons/instagram.svg", link: "https://instagram.com/nelly" }
+    ]
+  }
+]} />
 <PsicodramaSection />
 <TestimonialSection />
 <TestimonialSection2 />
