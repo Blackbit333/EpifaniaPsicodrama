@@ -1,32 +1,19 @@
----
-import { faFacebook, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image } from "astro:assets"; // Asegurándonos de importar Image de Astro
-import MemberImage1 from "~/assets/Efi3.jpeg"; // Imágen del primer miembro
-import MemberImage2 from "~/assets/Nelly.jpg"; // Imágen del segundo miembro
+// Importamos el componente Image de Astro para optimización de imágenes
+import { Image } from "astro:assets";
 
+// Aquí definimos los miembros del equipo, con sus imágenes y datos
 const teamMembers = [
   {
     name: "Lic. Efi Bezi",
     description: "Psicóloga, artista. Especialista en Psicodrama y Arteterapia.",
     country: "Argentina",
-    image: MemberImage1, // Usamos la imagen importada
-    socials: [
-      { platform: "facebook", link: "https://facebook.com", icon: faFacebook },
-      { platform: "linkedin", link: "https://linkedin.com", icon: faLinkedin },
-      { platform: "instagram", link: "https://instagram.com", icon: faInstagram },
-    ],
+    image: "/assets/workshop-image.png",  // Ruta a la imagen de Efi
   },
   {
     name: "Dra. Nelly López Azuz",
     description: "Psicóloga, antropóloga. Experta en Sociodrama, Psicodrama e Inteligencia Espiritual.",
     country: "México",
-    image: MemberImage2, // Usamos la imagen importada
-    socials: [
-      { platform: "facebook", link: "https://facebook.com", icon: faFacebook },
-      { platform: "linkedin", link: "https://linkedin.com", icon: faLinkedin },
-      { platform: "instagram", link: "https://instagram.com", icon: faInstagram },
-    ],
+    image: "/assets/favicon.svg",  // Ruta a la imagen de Nelly
   },
 ];
 
@@ -52,19 +39,6 @@ const TeamSection = () => (
               <h3 className="text-xl font-bold mb-2">{member.name}</h3>
               <p>{member.description}</p>
               <p className="mt-2 font-semibold">({member.country})</p>
-              <div className="mt-4 flex justify-center gap-4">
-                {member.socials.map((social, socialIndex) => (
-                  <a
-                    key={socialIndex}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    <FontAwesomeIcon icon={social.icon} className="text-lg" />
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
         ))}
@@ -74,3 +48,6 @@ const TeamSection = () => (
 );
 
 export default TeamSection;
+);
+
+
