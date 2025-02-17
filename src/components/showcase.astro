@@ -5,34 +5,8 @@ import ShowcaseCard from "~/components/showcase-card.astro";
 import PsicodramaSection from '~/components/PsicodramaSection.astro';
 import TestimonialSection from "~/components/TestimonialSection.astro";// Cambia por la ruta correcta de tu imagen.
 import TestimonialSection2 from "~/components/TestimonialSection2.astro";// Cambia por la ruta correcta de tu imagen.
-import TeamSection from "../components/TeamSection.astro";
 
-const teamData = [
-  {
-    name: "Lic. Efi Bezi",
-    title: "Psicóloga, artista",
-    description: "Especialista en Psicodrama y Arteterapia.",
-    country: "Argentina",
-    image: "/images/efi.jpg",
-    social: [
-       { icon: "/publics/icons/facebook.svg", link: "https://facebook.com/i" },
-      { icon: "/publics/icons/linkedin.svg", link: "https://linkedin.com/" },
-      { icon: "/publics/icons/instagram.svg", link: "https://instagram.com/" }
-    ]
-  },
-  {
-    name: "Dra. Nelly López Azuz",
-    title: "Psicóloga, antropóloga",
-    description: "Experta en Sociodrama, Psicodrama e Inteligencia Espiritual.",
-    country: "México",
-    image: "/images/nelly.jpg",
-    social: [
-      { icon: "/icons/facebook.svg", link: "https://facebook.com/nelly" },
-      { icon: "/icons/linkedin.svg", link: "https://linkedin.com/in/nelly" },
-      { icon: "/icons/instagram.svg", link: "https://instagram.com/nelly" }
-    ]
-  }
-];
+
 
 const featuredSites = await getCollection(
   "showcase",
@@ -42,7 +16,6 @@ const orderedSites = featuredSites.sort(
   (a, b) => a.data.featured! - b.data.featured!,
 );
 ---
-<TeamSection team={teamData} />
 <PsicodramaSection />
 <TestimonialSection />
 <TestimonialSection2 />
