@@ -1,84 +1,69 @@
----
-import { defineProps } from 'astro';
-const props = defineProps<{ team: { name: string; title: string; description: string; country: string; image: string; social: { icon: string; link: string; }[] }[] }>();
----
-
-<style>
-  .team-section {
-    background: #814a8c;
-    color: white;
-    text-align: center;
-    padding: 3rem 1rem;
-  }
-  .team-section h2 {
-    margin-bottom: 1rem;
-  }
-  .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 1100px;
-    margin: auto;
-  }
-  .team-card {
-    background: #f5f5f5;
-    color: black;
-    width: 350px;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .team-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-  .team-card-content {
-    padding: 1.5rem;
-  }
-  .team-card h3 {
-    margin: 0.5rem 0;
-  }
-  .team-card .social {
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    margin-top: 1rem;
-  }
-  .team-card .social a img {
-    width: 24px;
-    height: 24px;
-  }
-</style>
-
-<section class="team-section">
-  <h2>¿QUIÉNES SOMOS?</h2>
-  <p>
-    Somos un colectivo de psicólogas, antropólogas, sociólogas y psicodramatistas
-    especializadas en diversas ramas de la salud emocional, social y organizacional.
-    Creamos diseños personalizados, atención online, presencial y mixta. Brindamos
-    un acompañamiento cercano, profesional e íntegro a las personas.
-  </p>
-  <div class="team-grid">
-    {props.team.map(member => (
-      <div class="team-card">
-        <img src={member.image} alt={member.name} />
-        <div class="team-card-content">
-          <h3>{member.name}</h3>
-          <strong>{member.title}</strong>
-          <p>{member.description}</p>
-          <p>({member.country})</p>
-          <div class="social">
-            {member.social.map(s => (
-              <a href={s.link} target="_blank" rel="noopener noreferrer">
-                <img src={s.icon} alt="social-icon" />
-              </a>
-            ))}
-          </div>
-        </div>
+<section class="astro-team">
+  <div class="astro-member">
+    <div class="astro-photo">
+      <img src="ruta/a/foto1.jpg" alt="Integrante 1" class="astro-photo-img"/>
+    </div>
+    <div class="astro-info">
+      <h3>Nombre Integrante 1</h3>
+      <p>Descripción breve del integrante 1.</p>
+      <div class="astro-socials">
+        <a href="https://www.instagram.com/" target="_blank" class="astro-social-link">Instagram</a>
+        <a href="https://www.facebook.com/" target="_blank" class="astro-social-link">Facebook</a>
+        <a href="https://www.linkedin.com/" target="_blank" class="astro-social-link">LinkedIn</a>
       </div>
-    ))}
+    </div>
+  </div>
+
+  <div class="astro-member">
+    <div class="astro-photo">
+      <img src="ruta/a/foto2.jpg" alt="Integrante 2" class="astro-photo-img"/>
+    </div>
+    <div class="astro-info">
+      <h3>Nombre Integrante 2</h3>
+      <p>Descripción breve del integrante 2.</p>
+      <div class="astro-socials">
+        <a href="https://www.instagram.com/ejemplo2" target="_blank" class="astro-social-link">Instagram</a>
+        <a href="https://www.facebook.com/ejemplo2" target="_blank" class="astro-social-link">Facebook</a>
+        <a href="https://www.linkedin.com/in/ejemplo2" target="_blank" class="astro-social-link">LinkedIn</a>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .astro-team {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .astro-member {
+    text-align: center;
+    width: 40%;
+  }
+  
+  .astro-photo-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .astro-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .astro-social-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .astro-social-link:hover {
+    color: #0073e6;
+  }
+</style>
