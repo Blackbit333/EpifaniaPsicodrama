@@ -1,14 +1,13 @@
----
-import { Image } from "astro:assets";
 import { faFacebook, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Image } from "astro:assets"; // Asegurándonos de importar Image de Astro.
 
 const teamMembers = [
   {
     name: "Lic. Efi Bezi",
     description: "Psicóloga, artista. Especialista en Psicodrama y Arteterapia.",
     country: "Argentina",
-    image: "/workshop-image.png",
+    image: "/workshop-image.png", // Ruta relativa a la imagen
     socials: [
       { platform: "facebook", link: "https://facebook.com", icon: faFacebook },
       { platform: "linkedin", link: "https://linkedin.com", icon: faLinkedin },
@@ -19,7 +18,7 @@ const teamMembers = [
     name: "Dra. Nelly López Azuz",
     description: "Psicóloga, antropóloga. Experta en Sociodrama, Psicodrama e Inteligencia Espiritual.",
     country: "México",
-   image: "/workshop-image.png",
+    image: "/favicon.svg", // Ruta relativa a la imagen
     socials: [
       { platform: "facebook", link: "https://facebook.com", icon: faFacebook },
       { platform: "linkedin", link: "https://linkedin.com", icon: faLinkedin },
@@ -27,34 +26,48 @@ const teamMembers = [
     ],
   },
 ];
----
-<section class="py-12">
-  <div class="container mx-auto px-4">
-    <h2 class="text-center text-4xl font-bold mb-6">¿QUIÉNES SOMOS?</h2>
-    <p class="text-center max-w-3xl mx-auto mb-12">
-      Somos un colectivo de psicólogas, antropólogas, socio y psicodramatistas
-      especializadas en diversas ramas de la salud emocional, social y organizacional.
-      Creamos diseños personalizados, atención online, presencial y mixta.
-      Brindamos un acompañamiento cercano, profesional e íntegro a las personas.
-    </p>
-    <div class="grid gap-8 sm:grid-cols-2">
-      {teamMembers.map((member) => (
-        <div class="overflow-hidden rounded-lg shadow-lg">
-          <img src={member.image} alt={`Foto de ${member.name}`} class="w-full h-64 object-cover" />
-          <div class="p-6 text-center">
-            <h3 class="text-xl font-bold mb-2">{member.name}</h3>
-            <p>{member.description}</p>
-            <p class="mt-2 font-semibold">({member.country})</p>
-            <div class="mt-4 flex justify-center gap-4">
-              {member.socials.map((social) => (
-                <a href={social.link} target="_blank" rel="noopener noreferrer" class="hover:underline">
-                  <FontAwesomeIcon icon={social.icon} class="text-lg" />
-                </a>
-              ))}
+
+const TeamSection = () => (
+  <section className="py-12">
+    <div className="container mx-auto px-4">
+      <h2 className="text-center text-4xl font-bold mb-6">¿QUIÉNES SOMOS?</h2>
+      <p className="text-center max-w-3xl mx-auto mb-12">
+        Somos un colectivo de psicólogas, antropólogas, socio y psicodramatistas
+        especializadas en diversas ramas de la salud emocional, social y organizacional.
+        Creamos diseños personalizados, atención online, presencial y mixta.
+        Brindamos un acompañamiento cercano, profesional e íntegro a las personas.
+      </p>
+      <div className="grid gap-8 sm:grid-cols-2">
+        {teamMembers.map((member, index) => (
+          <div key={index} className="overflow-hidden rounded-lg shadow-lg">
+            <Image
+              src={member.image}
+              alt={`Foto de ${member.name}`}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-6 text-center">
+              <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+              <p>{member.description}</p>
+              <p className="mt-2 font-semibold">({member.country})</p>
+              <div className="mt-4 flex justify-center gap-4">
+                {member.socials.map((social, socialIndex) => (
+                  <a
+                    key={socialIndex}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    <FontAwesomeIcon icon={social.icon} className="text-lg" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+);
+
+export default TeamSection;
