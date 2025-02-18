@@ -1,45 +1,22 @@
----
-import { Image } from "astro:assets";
-import EfiImage from '~/assets/Efi3.jpeg';  // Ruta correcta para la imagen de Efi
-import NellyImage from '~/assets/Nelly.jpeg';  // Ruta correcta para la imagen de Nelly
-
-const widths = [320, 640, 1280]; // Resoluciones deseadas
-const sizes = '(max-width: 768px) 100vw, 50vw'; // Configuración responsiva
----
-
 <section class="astro-team">
   <div class="astro-member">
     <div class="astro-photo">
-      <Image 
-        src={EfiImage} 
-        alt="Integrante 1" 
-        class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white"
-        widths={widths}
-        sizes={sizes}
-        loading="eager"
-      />
+      <img src="ruta/a/foto1.jpg" alt="Integrante 1" class="astro-photo-img"/>
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 1</h3>
       <p>Descripción breve del integrante 1.</p>
       <div class="astro-socials">
-        <a href="https://www.instagram.com/" target="_blank" class="astro-social-link">Instagram</a>
-        <a href="https://www.facebook.com/" target="_blank" class="astro-social-link">Facebook</a>
-        <a href="https://www.linkedin.com/" target="_blank" class="astro-social-link">LinkedIn</a>
+        <a href="https://www.instagram.com/ejemplo1" target="_blank" class="astro-social-link">Instagram</a>
+        <a href="https://www.facebook.com/ejemplo1" target="_blank" class="astro-social-link">Facebook</a>
+        <a href="https://www.linkedin.com/in/ejemplo1" target="_blank" class="astro-social-link">LinkedIn</a>
       </div>
     </div>
   </div>
 
   <div class="astro-member">
     <div class="astro-photo">
-      <Image 
-        src={NellyImage} 
-        alt="Integrante 2" 
-        class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white"
-        widths={widths}
-        sizes={sizes}
-        loading="eager"
-      />
+      <img src="ruta/a/foto2.jpg" alt="Integrante 2" class="astro-photo-img"/>
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 2</h3>
@@ -58,41 +35,36 @@ const sizes = '(max-width: 768px) 100vw, 50vw'; // Configuración responsiva
     display: flex;
     justify-content: space-around;
     gap: 20px;
-    text-align: center;
   }
-
+  
   .astro-member {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     width: 40%;
   }
-
-  .astro-photo {
-    margin-bottom: 15px;
+  
+  .astro-photo-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
   }
-
-  .astro-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+  
   .astro-socials {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 10px;
   }
-
+  
   .astro-social-link {
     text-decoration: none;
     color: #333;
     font-size: 14px;
     transition: color 0.3s;
   }
-
+  
   .astro-social-link:hover {
     color: #0073e6;
   }
 </style>
+
