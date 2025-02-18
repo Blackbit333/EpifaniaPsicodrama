@@ -1,13 +1,13 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 import EfiImage from '~/assets/Efi3.jpeg';  // Asegúrate de usar la ruta correcta de tu imagen
-import NellyImage from '~/assets/Nelly.jpg';  // Asegúrate de usar la ruta correcta de tu imagen
+import NellyImage from '~/assets/Nelly.jpeg';  // Asegúrate de usar la ruta correcta de tu imagen
 ---
 
 <section class="astro-team">
   <div class="astro-member">
     <div class="astro-photo">
-      <img src={EfiImage} alt="Integrante 1" class="astro-photo-img"/>
+      <Image src={EfiImage} alt="Integrante 1" class="astro-photo-img" />
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 1</h3>
@@ -22,7 +22,7 @@ import NellyImage from '~/assets/Nelly.jpg';  // Asegúrate de usar la ruta corr
 
   <div class="astro-member">
     <div class="astro-photo">
-      <img src={NellyImage} alt="Integrante 2" class="astro-photo-img"/>
+      <Image src={NellyImage} alt="Integrante 2" class="astro-photo-img" />
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 2</h3>
@@ -86,3 +86,4 @@ import NellyImage from '~/assets/Nelly.jpg';  // Asegúrate de usar la ruta corr
     color: #0073e6;
   }
 </style>
+
