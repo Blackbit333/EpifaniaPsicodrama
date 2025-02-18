@@ -1,7 +1,15 @@
+import { Image } from "astro:assets";
+import EfiImage from "~/assets/Efi3.jpeg"; // Ruta de la imagen de Efi
+import NellyImage from "~/assets/Nelly.jpeg"; // Ruta de la imagen de Nelly
+
 <section class="astro-team">
   <div class="astro-member">
     <div class="astro-photo">
-      <img src="src/assets/Efi3.jpeg" alt="Integrante 1" class="astro-photo-img"/>
+      <Image 
+        src={EfiImage} 
+        alt="Integrante 1" 
+        class="astro-photo-img w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white"
+      />
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 1</h3>
@@ -16,7 +24,11 @@
 
   <div class="astro-member">
     <div class="astro-photo">
-      <img src="src/assets/Nelly.jpeg" alt="Integrante 2" class="astro-photo-img"/>
+      <Image 
+        src={NellyImage} 
+        alt="Integrante 2" 
+        class="astro-photo-img w-24 h-24 rounded-full mx-auto mb-4 border-4 border-white"
+      />
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 2</h3>
@@ -29,6 +41,7 @@
     </div>
   </div>
 </section>
+
 
 <style>
   .astro-team {
