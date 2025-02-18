@@ -1,13 +1,23 @@
 ---
 import { Image } from "astro:assets";
-import EfiImage from '~/assets/Efi3.jpeg';  // Ruta de la imagen de Efi
-import NellyImage from '~/assets/Nelly.jpeg';  // Ruta de la imagen de Nelly
+import EfiImage from '~/assets/Efi3.jpeg';  // Ruta correcta para la imagen de Efi
+import NellyImage from '~/assets/Nelly.jpeg';  // Ruta correcta para la imagen de Nelly
+
+const widths = [320, 640, 1280]; // Resoluciones deseadas
+const sizes = '(max-width: 768px) 100vw, 50vw'; // Configuración responsiva
 ---
 
 <section class="astro-team">
   <div class="astro-member">
     <div class="astro-photo">
-      <Image src={EfiImage} alt="Integrante 1" class="astro-photo-img" />
+      <Image 
+        src={EfiImage} 
+        alt="Integrante 1" 
+        class="astro-photo-img" 
+        widths={widths}
+        sizes={sizes}
+        loading="eager"
+      />
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 1</h3>
@@ -22,7 +32,14 @@ import NellyImage from '~/assets/Nelly.jpeg';  // Ruta de la imagen de Nelly
 
   <div class="astro-member">
     <div class="astro-photo">
-      <Image src={NellyImage} alt="Integrante 2" class="astro-photo-img" />
+      <Image 
+        src={NellyImage} 
+        alt="Integrante 2" 
+        class="astro-photo-img" 
+        widths={widths}
+        sizes={sizes}
+        loading="eager"
+      />
     </div>
     <div class="astro-info">
       <h3>Nombre Integrante 2</h3>
